@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
-import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 
 import { TRPCReactProvider } from "@/trpc/react";
 
@@ -11,16 +11,21 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
+const circular = localFont({
+  src: [
+    { path: "../../public/fonts/CircularStd-Book.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/CircularStd-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/CircularStd-Bold.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/CircularStd-Black.woff2", weight: "900", style: "normal" },
+  ],
+  variable: "--font-circular",
 });
 
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`}>
+    <html lang="en" className={`${circular.variable}`}>
       <body>
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>
