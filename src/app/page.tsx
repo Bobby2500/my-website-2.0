@@ -2,6 +2,7 @@ import { HydrateClient } from "@/trpc/server";
 import LandingPrompt from "./_components/inputs/LandingPrompt";
 import NavShell from "./_components/layout/NavShell";
 import Experience from "./_components/layout/Experience";
+import Contact from "./_components/layout/Contact";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 export default async function Home() {
@@ -154,16 +155,7 @@ export default async function Home() {
             </div>
           </section>
           <section id="contact" className="mt-16 pb-20">
-            <h2 className="text-3xl font-semibold">Get in touch!</h2>
-            <p className="text-normal mt-4">
-              Hiring or just want to chat? Feel free to reach out via email at{" "}
-              <a
-                href="mailto:shengliangchow@gmail.com"
-                className="text-gray-500 underline hover:text-black"
-              >
-                shengliangchow@gmail.com
-              </a>
-            </p>
+            <Contact/>
           </section>
         </NavShell>
       </main>
