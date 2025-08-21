@@ -16,7 +16,7 @@ export default function NavShell({ children }: NavShellProps) {
     { label: "About Me", id: "about" },
     { label: "Projects", id: "projects" },
     { label: "Experience", id: "experience" },
-    { label: "Articles", id: "articles" },
+    { label: "Blog", id: "blog" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -46,7 +46,7 @@ export default function NavShell({ children }: NavShellProps) {
       {/* Sidebar (independent of grid rows) */}
       <aside
         className={[
-          "fixed inset-y-0 left-0 z-40 flex w-[80vw] flex-col bg-white/90 px-8 pb-12 text-xl transition-transform duration-300",
+          "fixed inset-y-0 left-0 z-40 box-border flex h-[100dvh] w-[85vw] flex-col bg-white/90 px-8 pb-12 text-xl transition-transform duration-300",
           open ? "translate-x-0" : "-translate-x-full",
         ].join(" ")}
         aria-hidden={!open}
@@ -60,7 +60,7 @@ export default function NavShell({ children }: NavShellProps) {
               }}
               className={[
                 item.bottom ? "mt-auto" : "",
-                "rounded px-4 py-6 text-left font-medium hover:bg-gray-50",
+                "rounded px-4 py-[clamp(0.5rem,2.5vh,1.5rem)] text-left font-medium hover:bg-gray-50",
                 activeId === item.id ? "bg-gray-100" : "",
               ].join(" ")}
             >
@@ -68,10 +68,10 @@ export default function NavShell({ children }: NavShellProps) {
             </button>
           ))}
         </nav>
-        <button className="mt-6 w-fit rounded-full bg-gray-500 px-4 py-2 font-normal text-white hover:bg-blue-700">
+        <button className="mt-[clamp(0.5rem,2.5vh,1.5rem)] w-fit rounded-full bg-gray-500 px-4 py-2 font-normal text-white hover:bg-blue-700">
           Trusted Access
         </button>
-        <div className="mt-auto px-4 flex flex-col items-start gap-2 text-black">
+        <div className="mt-auto flex flex-col items-start gap-2 px-4 text-black">
           <div className="text-sm font-medium">Self-hosted machine status:</div>
           <div className="flex items-center gap-1">
             <Icon
